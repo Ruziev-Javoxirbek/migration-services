@@ -25,7 +25,6 @@
                 <!-- <li class="nav-item"><a class="nav-link" href="/register">Зарегистрироваться</a></li> -->
             @endguest
             @auth
-                <li class="nav-item"><a class="nav-link" href="/profile">Профиль</a></li>
                 @if (auth()->check() && auth()->user()->is_admin)
                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.forms') }}">📄 Заявления</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.translations') }}">🌐 Переводы</a></li>
@@ -33,6 +32,9 @@
                 @else
                     <li class="nav-item"><a class="nav-link" href="/dashboard">Мои заявления</a></li>
                 @endif
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/profile">  {{ auth()->user()->name }}</a>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="/logout">Выйти</a></li>
             @endauth
         </ul>
