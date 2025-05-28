@@ -21,7 +21,8 @@
             <li class="nav-item"><a class="nav-link" href="/apply">Первичная регистрация</a></li>
             <li class="nav-item"><a class="nav-link" href="/translations/create">Перевод документов</a></li>
             @guest
-                <li class="nav-item"><a class="nav-link" href="/register">Зарегистрироваться</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Войти</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="/register">Зарегистрироваться</a></li> -->
             @endguest
             @auth
                 <li class="nav-item"><a class="nav-link" href="/profile">Профиль</a></li>
