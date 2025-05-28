@@ -29,17 +29,14 @@ class AdminController extends Controller
     {
         $form = \App\Models\MigrationForm::findOrFail($id);
 
-        // Удалим файл администратора из S3, если есть
         if ($form->admin_file_path) {
             Storage::disk('s3')->delete($form->admin_file_path);
         }
-
-        // Удалим запись из базы
+        // Удалить запись из базы
         $form->delete();
 
         return redirect()->route('admin.forms')->with('success', 'Заявление удалено.');
     }
-
     public function uploadFile(Request $request, $id)
     {
         $request->validate(['admin_file' => 'required|file']);
@@ -50,10 +47,8 @@ class AdminController extends Controller
         $filename = 'admin_' . time() . '_' . $file->getClientOriginalName();
 
         try {
-            // ⬇️ Сохраняем только путь (НЕ URL)
             $path = Storage::disk('s3')->putFileAs('admin_files', $file, $filename);
 
-            // ⬇️ сохраняем именно "admin_files/..." без полного URL
             $form->admin_file_path = $path;
             $form->save();
 

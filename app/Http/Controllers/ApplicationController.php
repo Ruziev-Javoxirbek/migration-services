@@ -16,7 +16,7 @@ class ApplicationController extends Controller
 
     public function store(Request $request)
     {
-// Валидация полей формы (оставим как у тебя)
+// Валидация полей формы
         $validated = $request->validate([
             // 1. Иностранный гражданин
             'surname_en' => 'required|string',
@@ -82,7 +82,7 @@ class ApplicationController extends Controller
             'document_files.*' => 'file|mimes:jpg,jpeg,png,pdf|max:10240',
         ]);
 
-        // Отладка: проверим, действительно ли файл есть
+        // Отладка
         $documentPaths = [];
 
         if ($request->hasFile('document_files')) {
