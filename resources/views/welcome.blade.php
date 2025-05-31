@@ -176,6 +176,7 @@
         .custom-hero .btn-consult {
             display: inline-block;
             margin-top: 30px;
+            margin-bottom: 30px;
             padding: 16px 32px;
             background-color: #2e8076;
             color: #fff;
