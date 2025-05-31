@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-6">
                 <label>Фамилия (EN)</label>
-                <input name="surname_en" class="form-control" >
+                <input name="surname_en" class="form-control" required>
                 <div class="invalid-feedback">Введите только английские буквы</div>
             </div>
         </div>
@@ -38,19 +38,19 @@
             </div>
             <div class="col-md-6">
                 <label>Имя (EN)</label>
-                <input name="name_en" class="form-control" >
+                <input name="name_en" class="form-control" required>
                 <div class="invalid-feedback">Введите только английские буквы</div>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-md-6">
-                <label>Отчество при наличии (RU)</label>
+                <label>Отчество (при наличии) (RU)</label>
                 <input name="patronymic_ru" class="form-control">
                 <div class="invalid-feedback">Введите только русские буквы</div>
             </div>
             <div class="col-md-6">
-                <label>Отчество при наличии (EN)</label>
+                <label>Отчество (при наличии) (EN)</label>
                 <input name="patronymic_en" class="form-control">
                 <div class="invalid-feedback">Введите только английские буквы</div>
             </div>
@@ -60,12 +60,12 @@
             <div class="col-md-6">
                 <label>Гражданство</label>
                 <select name="citizenship" class="form-select" required>
+                    <option value="Азербайджан">Армения</option>
+                    <option value="Азербайджан">Азербайджан</option>
+                    <option value="Азербайджан">Казахстан</option>
                     <option value="Узбекистан">Узбекистан</option>
                     <option value="Таджикистан">Таджикистан</option>
                     <option value="Кыргызстан">Кыргызстан</option>
-                    <option value="Азербайджан">Азербайджан</option>
-                    <option value="Азербайджан">Армения</option>
-                    <option value="Азербайджан">Казахстан</option>
                 </select>
             </div>
             <div class="col-md-6">
@@ -121,7 +121,7 @@
             </div>
             <div class="col-md-6">
                 <label>Район</label>
-                <input name="stay_district" class="form-control" >
+                <input name="stay_district" class="form-control" required>
             </div>
         </div>
 
@@ -192,7 +192,7 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Документ, удостоверяющий личность</label>
-                <input name="migration_card_identity_doc" class="form-control" >
+                <input name="migration_card_identity_doc" class="form-control" required>
             </div>
             <div class="col-md-6">
                 <label>Цель визита</label>
@@ -233,7 +233,7 @@
 
         <div class="row mb-3">
             <div class="col-md-6">
-                <label>Отчество (при наличии)</label>
+                <label>Отчество</label>
                 <input name="host_patronymic" class="form-control">
             </div>
             <div class="col-md-6">
@@ -286,7 +286,7 @@
             </div>
             <div class="col-md-6">
                 <label>Район</label>
-                <input name="host_district" class="form-control" >
+                <input name="host_district" class="form-control" required>
             </div>
         </div>
 
