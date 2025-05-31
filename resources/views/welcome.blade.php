@@ -175,7 +175,7 @@
             gap: 40px;
         }
         .custom-hero .hero-title {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 600;
             color: #1c1c1c;
             max-width: 500px;
@@ -199,6 +199,12 @@
         }
         .custom-hero .btn-consult:hover {
             background-color: #1e5d55;
+        }
+
+        @media (max-width: 768px) {
+            .hero-right {
+                display: none;
+            }
         }
     </style>
 @endsection

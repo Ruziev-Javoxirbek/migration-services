@@ -79,7 +79,7 @@ class ApplicationController extends Controller
             'host_phone' => 'required|string',
 
             // 6. Файл
-            'document_files.*' => 'file|mimes:jpg,jpeg,png,pdf|max:10240',
+            'document_files.*' => 'file|mimes:jpg,jpeg,png,pdf|max:51200',
         ]);
 
         // Отладка

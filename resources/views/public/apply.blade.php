@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-6">
                 <label>Фамилия (EN)</label>
-                <input name="surname_en" class="form-control" required>
+                <input name="surname_en" class="form-control" >
                 <div class="invalid-feedback">Введите только английские буквы</div>
             </div>
         </div>
@@ -38,19 +38,19 @@
             </div>
             <div class="col-md-6">
                 <label>Имя (EN)</label>
-                <input name="name_en" class="form-control" required>
+                <input name="name_en" class="form-control" >
                 <div class="invalid-feedback">Введите только английские буквы</div>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-md-6">
-                <label>Отчество (RU)</label>
+                <label>Отчество при наличии (RU)</label>
                 <input name="patronymic_ru" class="form-control">
                 <div class="invalid-feedback">Введите только русские буквы</div>
             </div>
             <div class="col-md-6">
-                <label>Отчество (EN)</label>
+                <label>Отчество при наличии (EN)</label>
                 <input name="patronymic_en" class="form-control">
                 <div class="invalid-feedback">Введите только английские буквы</div>
             </div>
@@ -64,6 +64,8 @@
                     <option value="Таджикистан">Таджикистан</option>
                     <option value="Кыргызстан">Кыргызстан</option>
                     <option value="Азербайджан">Азербайджан</option>
+                    <option value="Азербайджан">Армения</option>
+                    <option value="Азербайджан">Казахстан</option>
                 </select>
             </div>
             <div class="col-md-6">
@@ -90,9 +92,9 @@
             <div class="col-md-6">
                 <label>Тип документа</label>
                 <select name="doc_type" class="form-select">
-                    <option>айди</option>
-                    <option>загран</option>
-                    <option>внутренний-национальный</option>
+                    <option>Заграничный паспорт</option>
+                    <option>Внутренний-национальный</option>
+                    <option>ID-карта</option>
                 </select>
             </div>
             <div class="col-md-6">
@@ -119,7 +121,7 @@
             </div>
             <div class="col-md-6">
                 <label>Район</label>
-                <input name="stay_district" class="form-control" required>
+                <input name="stay_district" class="form-control" >
             </div>
         </div>
 
@@ -190,7 +192,7 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Документ, удостоверяющий личность</label>
-                <input name="migration_card_identity_doc" class="form-control" required>
+                <input name="migration_card_identity_doc" class="form-control" >
             </div>
             <div class="col-md-6">
                 <label>Цель визита</label>
@@ -231,7 +233,7 @@
 
         <div class="row mb-3">
             <div class="col-md-6">
-                <label>Отчество</label>
+                <label>Отчество (при наличии)</label>
                 <input name="host_patronymic" class="form-control">
             </div>
             <div class="col-md-6">
@@ -260,7 +262,7 @@
                 <input name="host_birth_place" class="form-control" required>
             </div>
             <div class="col-md-6">
-                <label>Документ: Серия и №</label>
+                <label>Документ, удостоверяющий личность: Серия и №</label>
                 <input name="host_doc_number" class="form-control" required>
             </div>
         </div>
@@ -284,7 +286,7 @@
             </div>
             <div class="col-md-6">
                 <label>Район</label>
-                <input name="host_district" class="form-control" required>
+                <input name="host_district" class="form-control" >
             </div>
         </div>
 
