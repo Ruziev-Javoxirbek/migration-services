@@ -36,13 +36,13 @@ class ApplicationController extends Controller
 
             // 2. Место пребывания
             'stay_region' => 'required|string',
-            'stay_district' => 'required|string',
+            'stay_district' => 'nullable|string',
             'stay_city' => 'required|string',
             'stay_street' => 'required|string',
-            'stay_house' => 'required|string',
+            'stay_house' => 'required|numeric',
             'stay_korpus' => 'nullable|string',
             'stay_stroenie' => 'nullable|string',
-            'stay_flat' => 'nullable|string',
+            'stay_flat' => 'nullable|numeric',
             'stay_from' => 'required|date',
             'stay_to' => 'required|date',
             'phone' => 'required|string',
@@ -69,13 +69,13 @@ class ApplicationController extends Controller
 
             // 5. Место проживания
             'host_region' => 'required|string',
-            'host_district' => 'required|string',
+            'host_district' => 'nullable|string',
             'host_city' => 'required|string',
             'host_street' => 'required|string',
-            'host_house' => 'required|string',
+            'host_house' => 'required|numeric',
             'host_korpus' => 'nullable|string',
             'host_stroenie' => 'nullable|string',
-            'host_flat' => 'nullable|string',
+            'host_flat' => 'nullable|numeric',
             'host_phone' => 'required|string',
 
             // 6. Файл

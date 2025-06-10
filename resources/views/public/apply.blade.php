@@ -117,18 +117,25 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Область</label>
-                <input name="stay_region" class="form-control" required>
+                <select name="stay_region" id="region" class="form-select" required>
+                    <option value="">Выберите область</option>
+                    <option value="Ханты-Мансийский автономный округ — Югра">Ханты-Мансийский автономный округ — Югра</option>
+                    <option value="Москва">Московская</option>
+                    <option value="Приморский край">Приморский край</option>
+                </select>
             </div>
             <div class="col-md-6">
                 <label>Район</label>
-                <input name="stay_district" class="form-control" required>
+                <input name="stay_district" class="form-control" >
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Город</label>
-                <input name="stay_city" class="form-control" required>
+                <select name="stay_city" id="city" class="form-select" required>
+                    <option value="">Сначала выберите область</option>
+                </select>
             </div>
             <div class="col-md-6">
                 <label>Улица</label>
@@ -282,18 +289,25 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Область</label>
-                <input name="host_region" class="form-control" required>
+                <select name="host_region" id="host_region" class="form-select" required>
+                    <option value="">Выберите область</option>
+                    <option value="Ханты-Мансийский автономный округ — Югра">Ханты-Мансийский автономный округ — Югра</option>
+                    <option value="Москва">Московская</option>
+                    <option value="Приморский край">Приморский край</option>
+                </select>
             </div>
             <div class="col-md-6">
                 <label>Район</label>
-                <input name="host_district" class="form-control" required>
+                <input name="host_district" class="form-control">
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Город</label>
-                <input name="host_city" class="form-control" required>
+                <select name="host_city" id="host_city" class="form-select" required>
+                    <option value="">Сначала выберите область</option>
+                </select>
             </div>
             <div class="col-md-6">
                 <label>Улица</label>
@@ -390,108 +404,7 @@
 
         <button type="submit" class="btn btn-success mt-3">Отправить заявку</button>
     </form>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const validateField = (input, pattern, errorMessage) => {
-                input.addEventListener('input', () => {
-                    if (!input.value.match(pattern) && input.value !== '') {
-                        input.classList.add('is-invalid');
-                        input.setCustomValidity(errorMessage);
-                    } else {
-                        input.classList.remove('is-invalid');
-                        input.setCustomValidity('');
-                    }
-                });
-            };
-
-            // английские поля
-            validateField(document.querySelector('[name="surname_en"]'), /^[A-Za-z\s]+$/, 'Введите только латинские буквы');
-            validateField(document.querySelector('[name="name_en"]'), /^[A-Za-z\s]+$/, 'Введите только латинские буквы');
-            validateField(document.querySelector('[name="patronymic_en"]'), /^[A-Za-z\s]*$/, 'Введите только латинские буквы');
-
-            // русские поля
-            validateField(document.querySelector('[name="surname_ru"]'), /^[А-Яа-яЁё\s]+$/, 'Введите только русские буквы');
-            validateField(document.querySelector('[name="name_ru"]'), /^[А-Яа-яЁё\s]+$/, 'Введите только русские буквы');
-            validateField(document.querySelector('[name="patronymic_ru"]'), /^[А-Яа-яЁё\s]*$/, 'Введите только русские буквы');
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            function setupPhoneValidation(inputId) {
-                const input = document.getElementById(inputId);
-
-                input.addEventListener('focus', function () {
-                    if (this.value === '') {
-                        this.value = '+';
-                    }
-                });
-
-                input.addEventListener('input', function () {
-                    if (!this.value.startsWith('+')) {
-                        this.value = '+' + this.value.replace(/\D/g, '');
-                    }
-
-                    let digits = this.value.slice(1).replace(/\D/g, '').slice(0, 11);
-                    this.value = '+' + digits;
-
-                    if (digits.length < 10 || digits.length > 11) {
-                        this.classList.add('is-invalid');
-                    } else {
-                        this.classList.remove('is-invalid');
-                    }
-                });
-            }
-
-            setupPhoneValidation('phone');
-            setupPhoneValidation('host_phone');
-        });
-
-        function previewFiles(input) {
-            const previewContainer = document.getElementById('preview-container');
-            previewContainer.innerHTML = '';
-
-            const files = input.files;
-            for (const file of files) {
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    if (file.type.startsWith('image/')) {
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        img.style.maxWidth = '200px';
-                        img.style.margin = '10px';
-                        img.style.cursor = 'pointer';
-                        img.onclick = () => openFullImage(e.target.result); // 🔍
-
-                        previewContainer.appendChild(img);
-                    } else {
-                        const p = document.createElement('p');
-                        p.textContent = `📄 ${file.name}`;
-                        previewContainer.appendChild(p);
-                    }
-                };
-
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function openFullImage(src) {
-            const fullImg = document.createElement('img');
-            fullImg.src = src;
-            fullImg.style.position = 'fixed';
-            fullImg.style.top = '0';
-            fullImg.style.left = '0';
-            fullImg.style.width = '100vw';
-            fullImg.style.height = '100vh';
-            fullImg.style.objectFit = 'contain';
-            fullImg.style.background = 'rgba(0,0,0,0.9)';
-            fullImg.style.zIndex = '1000';
-            fullImg.style.cursor = 'zoom-out';
-
-            fullImg.onclick = () => document.body.removeChild(fullImg); // закрытие по клику
-            document.body.appendChild(fullImg);
-        }
-    </script>
+    <script src="{{ asset('js/form.js') }}"></script>
 @endsection
 
 
