@@ -179,7 +179,7 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Телефон</label>
-                <input name="phone" id="phone" class="form-control" required maxlength="11">
+                <input name="phone" id="phone" class="form-control" required maxlength="12">
                 <div class="invalid-feedback">Введите только цифры</div>
             </div>
         </div>
@@ -340,7 +340,7 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Телефон</label>
-                <input name="host_phone" id="host_phone" class="form-control" required maxlength="11">
+                <input name="host_phone" id="host_phone" class="form-control" required maxlength="12">
                 <div class="invalid-feedback">Введите только цифры</div>
             </div>
         </div>

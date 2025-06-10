@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.value = '+' + this.value.replace(/\D/g, '');
             }
 
-            let digits = this.value.slice(1).replace(/\D/g, '').slice(0, 11);
+            let digits = this.value.slice(1).replace(/\D/g, '').slice(0, 12);
             this.value = '+' + digits;
 
             if (digits.length < 10 || digits.length > 11) {

@@ -112,6 +112,7 @@ class ApplicationController extends Controller
         if (auth()->check()) {
             $validated['user_id'] = auth()->id();
         }
+
         try {
             MigrationForm::create($validated);
             Log::info('Заявка успешно добавлена в БД');
