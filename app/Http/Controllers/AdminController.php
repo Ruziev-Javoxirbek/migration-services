@@ -48,8 +48,9 @@ class AdminController extends Controller
 
         try {
             $path = Storage::disk('s3')->putFileAs('admin_files', $file, $filename);
+            $url = Storage::disk('s3')->url($path); //  ссылка для клиента
 
-            $form->admin_file_path = $path;
+            $form->admin_file_path = $url; //  готовая публичная ссылка
             $form->save();
 
             return back()->with('success', 'Файл отправлен пользователю!');

@@ -10,12 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
     // английские поля
     validateField(document.querySelector('[name="surname_en"]'), /^[A-Za-z\s]+$/, 'Введите только латинские буквы');
     validateField(document.querySelector('[name="name_en"]'), /^[A-Za-z\s]+$/, 'Введите только латинские буквы');
     validateField(document.querySelector('[name="patronymic_en"]'), /^[A-Za-z\s]*$/, 'Введите только латинские буквы');
-
     // русские поля
     validateField(document.querySelector('[name="surname_ru"]'), /^[А-Яа-яЁё\s]+$/, 'Введите только русские буквы');
     validateField(document.querySelector('[name="name_ru"]'), /^[А-Яа-яЁё\s]+$/, 'Введите только русские буквы');
@@ -59,7 +57,6 @@ function previewFiles(input) {
     const files = input.files;
     for (const file of files) {
         const reader = new FileReader();
-
         reader.onload = function(e) {
             if (file.type.startsWith('image/')) {
                 const img = document.createElement('img');
@@ -76,7 +73,6 @@ function previewFiles(input) {
                 previewContainer.appendChild(p);
             }
         };
-
         reader.readAsDataURL(file);
     }
 }

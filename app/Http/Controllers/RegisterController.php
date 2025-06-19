@@ -40,55 +40,42 @@ class RegisterController extends Controller
             'password' => Hash::make($validated['password']),
             'is_admin' => 0,
         ]);
-
         // Ссылка на подтверждение
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),
             ['id' => $user->id, 'hash' => sha1($user->email)]
         );
-
         // Отправка письма
         Mail::raw("Подтвердите ваш email: $verificationUrl", function ($message) use ($user) {
             $message->to($user->email)
                 ->subject('Подтверждение Email');
         });
-
         Auth::login($user);
         return redirect('/dashboard')->with('success', 'На вашу почту отправлена ссылка для подтверждения.');
     }
-
     public function verifyEmail(Request $request, $id, $hash)
     {
         $user = User::findOrFail($id);
-
         if (!hash_equals((string) $hash, sha1($user->email))) {
             abort(403, 'Недопустимая ссылка.');
         }
-
         $user->email_verified_at = now();
         $user->save();
-
         return redirect('/dashboard')->with('success', 'Email успешно подтверждён!');
     }
-
-    //----------------------------
-
     public function resendVerificationEmail(Request $request)
     {
         $user = $request->user();
-
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),
             ['id' => $user->id, 'hash' => sha1($user->email)]
         );
-
         Mail::raw("Подтвердите ваш email: $verificationUrl", function ($message) use ($user) {
             $message->to($user->email)
                 ->subject('Подтверждение Email');
         });
-
         return back()->with('success', 'Ссылка для подтверждения отправлена повторно.');
     }
 

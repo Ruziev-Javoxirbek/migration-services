@@ -2,37 +2,27 @@
 
 @section('content')
     <h2>Форма на подготовку заявления для регистрации</h2>
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
+                @foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach
             </ul>
         </div>
     @endif
     <form method="POST" action="{{ url('/apply') }}" enctype="multipart/form-data">
         @csrf
-
         <h4>1. Иностранный гражданин</h4>
-
         <div class="row mb-3">
-            <div class="col-md-6">
-                <label>Фамилия (RU)</label>
+            <div class="col-md-6"><label>Фамилия (RU)</label>
                 <input name="surname_ru" class="form-control" required>
                 <div class="invalid-feedback">Введите только русские буквы</div>
             </div>
-            <div class="col-md-6">
-                <label>Фамилия (EN)</label>
+            <div class="col-md-6"><label>Фамилия (EN)</label>
                 <input name="surname_en" class="form-control" required>
                 <div class="invalid-feedback">Введите только английские буквы</div>
             </div>
         </div>
-
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <label>Имя (RU)</label>
+        <div class="row mb-3"><div class="col-md-6"><label>Имя (RU)</label>
                 <input name="name_ru" class="form-control" required>
                 <div class="invalid-feedback">Введите только русские буквы</div>
             </div>
@@ -195,7 +185,6 @@
                 <input name="migration_card_number" class="form-control" required>
             </div>
         </div>
-
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Документ, удостоверяющий личность</label>
@@ -237,7 +226,6 @@
                 <input name="host_name" class="form-control" required>
             </div>
         </div>
-
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Отчество</label>
@@ -248,7 +236,6 @@
                 <input name="host_citizenship" class="form-control" required>
             </div>
         </div>
-
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Дата рождения</label>
@@ -301,7 +288,6 @@
                 <input name="host_district" class="form-control">
             </div>
         </div>
-
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Город</label>
@@ -381,18 +367,13 @@
                     </div>
                     <div class="modal-body" style="white-space: pre-line;">
                         В соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» я, субъект персональных данных, выражаю своё согласие на обработку моих персональных данных, указанных мною в настоящей веб-форме.
-
                         Цели обработки персональных данных:
                         – оформление и подготовка заявлений для временной регистрации по месту пребывания;
                         – взаимодействие со мной по вопросам, связанным с оформлением миграционных документов;
                         – предоставление миграционных, юридических и сопутствующих услуг.
-
                         Обработка персональных данных включает в себя: сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, передачу (в том числе поручение обработки третьим лицам при необходимости), обезличивание, блокирование, уничтожение персональных данных.
-
                         Согласие предоставляется на срок, необходимый для достижения вышеуказанных целей, и может быть отозвано мною в любой момент путём подачи письменного уведомления.
-
                         Я подтверждаю, что ознакомлен(а) с условиями обработки персональных данных, предоставленных в рамках использования данного веб-приложения, и даю своё осознанное согласие на их обработку.
-
                         Ознакомлен(а), согласен(а).
                     </div>
                     <div class="modal-footer">
